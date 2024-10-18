@@ -5,7 +5,7 @@
 const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 
 /* Opdracht  1: Cum Laude */
-
+console.log("Opdracht 1");
 /* 1a: Script schrijven  */
 // De administratie moet weten hoeveel studenten er dit blok cum laude zijn afgestudeerd (8 of hoger). Daar moeten namelijk speciale diploma's voor besteld worden.
 // Schrijf de stapjes om dit te kunnen checken eerst uit en vraag jezelf de volgende dingen af:
@@ -16,6 +16,13 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 
 // ---- Verwachte uitkomst: 6
 
+let cumLaudeNumber = 0;
+for (let i = 0; i < grades.length; i++) {
+    if (grades[i] >= 8) {
+        cumLaudeNumber++;
+    }
+}
+console.log(cumLaudeNumber);
 
 /*  1b: Omschrijven tot een herbruikbare functie   */
 // Schrijf een functie genaamd cumLaude, die een array van cijfers verwacht (zoals grades) en het aantal Cum laude studenten teruggeeft. Gebruik hiervoor jouw antwoord van 1a.
@@ -27,11 +34,20 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // cumLaude([6, 4, 5]) geeft 0
 // cumLaude([8, 9, 4, 6, 10]) geeft 3
 
+function cumLaude(grades) {
+    let cumLaudeNumber = 0;
+    for (let i = 0; i < grades.length; i++) {
+        if (grades[i] >= 8) {
+            cumLaudeNumber++;
+        }
+    }
+    return cumLaudeNumber;
+}
 
-
+console.log(cumLaude(grades));
 
 /* Opdracht  2: Gemiddeld cijfer */
-
+console.log("Opdracht 2");
 /* 2a: Script schrijven  */
 // De studenten-administratie moet ieder blok opnieuw berekenen wat het gemiddelde eindcijfer is, maar we beginnen met de grades array van hierboven.
 // Schrijf de stapjes om dit te kunnen berekenen eerst uit en vraag jezelf de volgende dingen af:
@@ -41,6 +57,12 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // Log het antwoord in de terminal.
 
 // ---- Verwachte uitkomst: 6.642857142857143
+
+let gradesTotal = 0;
+for (let i = 0; i < grades.length; i++) {
+    gradesTotal = gradesTotal + grades[i];
+}
+console.log(gradesTotal / grades.length);
 
 
 /* 2b: Omschrijven tot een herbruikbare functie */
@@ -53,16 +75,24 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // averageGrade([6, 4, 5]) geeft 5
 // averageGrade([8, 9, 4, 6, 10]) geeft 7.4
 
+function averageGrade(grades) {
+    let gradesTotal = 0;
+    for (let i = 0; i < grades.length; i++) {
+        gradesTotal = gradesTotal + grades[i];
+    }
+    return (gradesTotal / grades.length);
+}
+
+console.log(averageGrade(grades));
 
 /* 2c: Afronden op twee decimalen */
 // Zorg ervoor dat het gemiddelde cijfer dat wordt teruggegeven uit de functie netjes wordt afgerond op twee decimalen.
 // Tip: Google is your best friend!
-
-
+console.log(Math.round(averageGrade(grades) * 100) / 100);
 
 
 /* Bonusopdracht: hoogste cijfer */
-
+console.log("Opdracht 3a");
 /* 3a: Script schrijven  */
 // Schrijf een script die op basis van de grades array (hierboven) checkt wat het hoogst behaalde cijfer is. Je mag hier geen bestaande methoden voor gebruiken. Schrijf de stapjes eerst uit en vraag jezelf de volgende dingen af:
 // * Hoe kan ik iedere waarde van de array langsgaan?
@@ -72,6 +102,13 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 
 // ---- Verwachte uitkomst: 9
 
+let highGrade = 0;
+for (let i = 0; i < grades.length; i++) {
+    if (grades[i] > highGrade) {
+        highGrade = grades[i];
+    }
+}
+console.log(highGrade);
 
 /* 3b: Omschrijven tot een herbruikbare functie */
 // Schrijf een functie genaamd highestGrade, die een array van cijfers verwacht (zoals grades) en het hoogste cijfer teruggeeft. Gebruik hiervoor jouw antwoord van 3a.
@@ -82,3 +119,16 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // highestGrade(grades) geeft 9
 // highestGrade([6, 4, 5]) geeft 6
 // highestGrade([8, 9, 4, 6, 10]) geeft 10
+console.log("Opdracht 3b");
+
+function highestGrade(grades) {
+    let highGrade = 0;
+    for (let i = 0; i < grades.length; i++) {
+        if (grades[i] > highGrade) {
+            highGrade = grades[i];
+        }
+    }
+    return highGrade;
+}
+
+console.log(highestGrade([6, 4, 9, 9.5]));
